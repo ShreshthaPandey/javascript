@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai aur code</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    setTimeout(function(){ // will execut4e the fn after 2 sec
+        console.log("hitesh")
+    }, 2000) // fn ,, it also calls api
+
+const sayHello = function(){ // 2ns method
+    console.log("hello ji");
+}
+setTimeout(sayHello , 2000)
+
+
+const rename = document.querySelector('h1').innerHTML = "best js series" // it will change immediately ... if want to do it after 2sec??
+
+//ans
+
+const changeText = function(){
+    document.querySelector('h1').innerHTML = "best of yourself"
+}
+setTimeout(changeText, 4000)
+
+//********************clearTimeOut************************
+const changeMe = setTimeout(changeText , 2000)
+
+document.querySelector('#stop').addEventListener('click' , function(){
+   // clearTimeout(changeMe)
+   // console.log("stopped")    // when u will clicked on bvutton ,, it will stop the event happening further ...purana nhi changr karega
+
+})
+
+setInterval|(function(){// after 1 sec it will print it againa nd again
+    console.log("tanu" , Date.now());
+}, 1000)
+
+
+
+const sayDate = function(str){
+    console.log(str , Date.now());
+}
+ const intervalId = (sayDate , 1000 , "hi")
+
+clearInterval(intervalId) // stop the printing 
+
+</script>
+</html>
