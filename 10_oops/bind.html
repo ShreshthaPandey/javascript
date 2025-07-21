@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>button clicked</button>
+</body>
+<script>
+    class react{
+        constructor(){
+            this.lib = "react"
+            this.server = "avc//localhost:300"
+
+            // requirement
+document.querySelector('button').addEventListener('click', this.handClick.bind(this)) // all other things bind with fn and pass witht the fn
+
+        }
+
+        handClick(){
+            console.log("button clicked");
+            console.log(this.server);
+        }
+    }
+
+    const app = new react()
+</script>
+</html>

@@ -16,25 +16,50 @@ class user { // declaring class
 const chai = new user("tanu" , "abc@gmail.com" ,"123")
 
 console.log(chai)
+console.log(chai.encryptPassward())
 
 // behind the scene
 
-class Teacher extends user{
-constructor(username , email , passward){
+function user2 (user2name , email , passward){
+        this.user2name = user2name;
+         this.email = email;
+        this.passward = passward
 
-    super(username) // extend class of teacher that is user so you user class ke constructor ke jakr lekr ata hi username ko....automatically yoh username ko set kr dega this keyeard ko lekr
-    this.email = email
-    this.passward = passward
-    }
 
-    addCourse(){
-        console.log(`a new course was added by the ${this.username}`)
-    }
 }
 
-const name =  new Teacher("chai" , "abc@gmail.com" , "123" )
+user2.prototype.encryptPassward = function(){
+    return `${this.passward}abc`
+}
 
-chai.addCourse() // chai is not defined... chai is not a class object
-// chai is not defined because we have not created an object of createUser class
+const tea = new user2 ("tea" , "tea@gmail.com" , "123")
 
-console.log(Teacher instanceof user); // true... Teacher is a child class of user so it will return true
+console.log(chai.encryptPassward())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
