@@ -67,7 +67,7 @@ return user.username
 }).catch(function(error){  // chaining of then and catch
     console.log(error)
 }).finally(()=>{
-    console.log("the promise is either resolved or rejected")
+    console.log("the promise is either resolved or rejected") // will always be printed
 })
 
 
@@ -84,6 +84,8 @@ const promiseFive = new Promise(function(resolve , reject){
 })
 
 //***********************async  and await  ************ */
+ // here we dont handle catch gracefully
+// cant directly handle catch block or wrror 
 
 // async function consume(){
 //     const response = await promiseFive
@@ -107,3 +109,23 @@ async function consume(){
 }
 
 consume()
+
+// async function getAllUsers(){
+//      const response =  await fetch('htpps://abc.com/users') // network request hi..time lagega hence put in await
+//     const data = response.json() // convert string data coming into jason
+//      console.log(data);
+// } 
+//.................not good..wrap in try catch block.......
+
+
+async function getAllUsers(){
+    try{
+              const response =  await fetch('htpps://abc.com/users') // network request hi..time lagega hence put in await
+    const data =  await response.json() // convert string data coming into jason
+      console.log(data);
+    }catch(error){
+        console.log("E:", error);
+    }
+}
+
+getAllUsers()
