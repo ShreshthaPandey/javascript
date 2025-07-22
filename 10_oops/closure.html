@@ -1,0 +1,76 @@
+ // colsure => outer fn ka scope inner fn me mil jata
+
+ // lexical scoping => 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <button id="orange">orange</button>
+    <button id="green">red</button>
+ </body>
+ <script>
+    // function init(){
+    //     let name = "tanu"
+    //     function displayName(){
+    //         console.log();
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    function outer(){
+        let username = "hitesh"
+      //  console.log("outer" , secret) // outer fn me inner fn a access nhi hi
+
+        function inner(){
+            let secret = "123"
+            console.log( "inner"+ username);
+        }
+        function innerTwo(){
+            console.log("inner two" + username);
+        }
+        inner()
+        innerTwo()
+    }
+    outer()
+    //console.log( "too outer"+ username) // give error as outer space me available nhi hii
+
+
+    //******************************************************
+    //colsure
+    function makeFunc(){
+        const name= "tanu"
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;
+    }
+    const myFunc = makeFunc(); // fn will return displayname but also the lexical scope of its outer fn
+    myFunc();
+    //****************************************************
+
+
+    //regarding button
+
+    document.getElementById("orange").onclick = function(){
+        document.body.style.backgroundColor = "orange"
+    }
+
+    // if we have to do it for 100 buttons
+
+    function clickHandler(color){
+         //document.body.style.backgroundColor = `${color}`// this will not work
+
+          return function(){
+            document.body.style.backgroundColor = `${color}`
+         }
+    }
+   document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+
+ </script>
+ </html>

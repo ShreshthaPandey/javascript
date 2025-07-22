@@ -11,10 +11,10 @@ const promiseOne = new Promise(function(resolve , reject){
 
 
 //consuption of promise
-promiseOne.then(function(){ // .then direct connnection with resolve ... work done above will return here
+promiseOne.then(function(){ // .then direct connnection with resolve ... work done above will return here 
     console.log("promise cansumed")
 })
-
+  
 
 new Promise(function(resolve , reject){ // 2nd way of making resolve promise
 
@@ -26,11 +26,12 @@ new Promise(function(resolve , reject){ // 2nd way of making resolve promise
     console.log("async resolved here")
 })
 
+// if want to pass parameter to the fn
 
 const promiseThree = new Promise(function(resolve , reject){
     setTimeout(function(){
         resolve({
-            username:"chai", email : "hello@gami.com"
+            username:"chai", email : "hello@gami.com" // passing object in resolve fn
         }, 1000)
     })
 })
@@ -61,7 +62,7 @@ const promiseFour = new Promise(function(resolve , reject){
 promiseFour.then((user) => { // cant do like this if want to extracty inside data
 console.log(user);
 return user.username
-}).then((userName) => {
+}).then((userName) => { // uper wale then se jo value return hokr ayegi yoh isme ayegi
     console.log(userName)
 }).catch(function(error){  // chaining of then and catch
     console.log(error)
